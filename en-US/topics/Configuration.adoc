@@ -1,0 +1,26 @@
+
+= Teiid Server Configuration
+
+This describes how the Teiid server needs to be configured, regardless of the use case, in order to integrate with JDG using the Hot Rod Client.
+
+To configure the Teiid Server:
+
+.  Review the link:Prerequisites.adoc[Prerequisites]
+.  Install the  JDG Hot Rod Client EAP Module kit into the Teiid server
+
+** *NOTE*:  If installing JDG 6.6, then will need to install the JDG 6.6.1 patch that upgrades infinispan module:  org.infinispan.protostream  to  protostream-3.0.5.Final.jar
+
+.  Configure JDG Cache DSL translator (if not already done), do the following:
+
+..  Start the Teiid server
+..  open terminal window, cd into $JBOSS_HOME/bin
+..  execute the following command:
+
+[source]
+----
+      ./jboss-cli.sh  --connect  --file=../docs/teiid/datasources/infinispan/add-infinispan-cache-dsl-translator.cli
+----
+
+This will install the infinispan-cache-dsl translator and an empty infinispan resource-adapter, which is used for tooling.
+
+

@@ -1,0 +1,15 @@
+
+= Prerequisites
+
+This discusses topics that need to be considered before the process begins of integrating JDV and JDG.
+
+== What You Will Need
+
+The following are the prerequisites for integrating JDG with JDV:
+
+*  have installed a JDG server of version 6.4+
+*  obtain the corresponding version of JDG Hot Rod Client EAP Module Kit from the link:https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?product=data.grid&downloadType=distributions[JDG link - Customer Portal]
+*  if using JDG 6.6, then will need the 6.6.1 patch for the JDG Hot Rod Client EAP Module Kit
+*  have installed a Teiid 9.x server.
+*  JBDS / Teiid Designer will require a JDK, instead of JRE, in order to create a pojo.
+
