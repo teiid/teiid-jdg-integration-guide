@@ -9,9 +9,9 @@ This specific example is also configuring the "ChildClasses" by including their 
 .*Sample Resource Adapter*
 ----
                <resource-adapter id="infinispanRemQSDSL">
-                    <module slot="main" id="org.jboss.teiid.resource-adapter.infinispan.dsl"/>
+                    <module slot="main" id="org.jboss.teiid.resource-adapter.infinispan.hotord"/>
                     <connection-definitions>
-                        <connection-definition class-name="org.teiid.resource.adapter.infinispan.dsl.InfinispanManagedConnectionFactory" jndi-name="java:/infinispanRemoteDSL" enabled="true" use-java-context="true" pool-name="infinispanRemoteDSL">
+                        <connection-definition class-name="org.teiid.resource.adapter.infinispan.hotrod.InfinispanManagedConnectionFactory" jndi-name="java:/infinispanRemoteDSL" enabled="true" use-java-context="true" pool-name="infinispanRemoteDSL">
                             <config-property name="MessageDescriptor">
                                 quickstart.Person
                             </config-property>
@@ -28,7 +28,7 @@ This specific example is also configuring the "ChildClasses" by including their 
                                 127.0.0.1:11322
                             </config-property>
                             <config-property name="CacheTypeMap">
-                                addressbook_indexed:org.jboss.as.quickstarts.datagrid.hotrod.query.domain.Person;id
+                                primaryCache:org.jboss.as.quickstarts.datagrid.hotrod.query.domain.Person;id
                             </config-property>
                         </connection-definition>
                     </connection-definitions>

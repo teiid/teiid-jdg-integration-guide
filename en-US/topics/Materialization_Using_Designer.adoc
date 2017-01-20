@@ -31,8 +31,8 @@ The general workflow is as follows:
 * Deploy POJO zip
  
   . Deploy pojo module to the server by unzipping at the root directory of the Teiid server installation.
-  . If using pojo annotations, edit the module.xml for org.jboss.teiid.resource-adapter.infinispan.dsl resource adapter to add the pojo module dependency
-Location:  modules/system/layers/dv/org/jboss/teiid/resource-adapter/infinispan/dsl/main/module.xml
+  . If using pojo annotations, edit the module.xml for org.jboss.teiid.resource-adapter.infinispan.hotrod resource adapter to add the pojo module dependency
+Location:  modules/system/layers/dv/org/jboss/teiid/resource-adapter/infinispan/hotrod/main/module.xml
 
 [source]
 .*Example module dependency*
@@ -55,7 +55,7 @@ image::images/resource_adapter_created.png[Server View]
 
 * Create VDB
   * Ensure the materialized view model and the JDG source model are added
-  * A translator override was created, named {jdgSourceTableName}_infinispan-cache-dsl, set this as the translator for the JDG source model
+  * A translator override was created, named {jdgSourceTableName}_hotrod, set this as the translator for the JDG source model
   ** This translator override has the following required overrides to enable JDG materialization to work
   *** SupportsDirectQueryProcedure = true
   *** SupportsNativeQueries = true

@@ -39,7 +39,7 @@ This was chose so that it demonstrated the adjusting of a BigDecimal data type i
         </model>
 
         <model name="StockJDGSource">
-                <source connection-jndi-name="java:/StockMatSource" name="StockJDGSource" translator-name="StockJDGSource_infinispan-cache-dsl"/>
+                <source connection-jndi-name="java:/StockMatSource" name="StockJDGSource" translator-name="StockJDGSource_ispn-hotrod"/>
                 <metadata type="DDL"><![CDATA[
 SET NAMESPACE 'http://www.teiid.org/translator/object/2016' AS OBJECT_NS;
 
@@ -61,7 +61,7 @@ CREATE FOREIGN TABLE ST_Stock (
 
                 ]]></metadata>
         </model>
-        <translator description="" name="StockJDGSource_infinispan-cache-dsl" type="infinispan-cache-dsl">
+        <translator description="" name="StockJDGSource_ispn-hotrod" type="ispn-hotrod">
                 <property name="SupportsNativeQueries" value="true"/>
                 <property name="SupportsDirectQueryProcedure" value="true"/>
         </translator>

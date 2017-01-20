@@ -24,7 +24,7 @@ see link:PojoConfiguration.adoc[Pojo Creation] regarding how to create the pojo 
 ===  Teiid Server Configuration
 
 *  deploy pojo module that was created
-*  if using pojo annotations, edit the module.xml for resource adapter *org.jboss.teiid.resource-adapter.infinispan.dsl* to add the pojo module dependency
+*  if using pojo annotations, edit the module.xml for resource adapter *org.jboss.teiid.resource-adapter.infinispan.hotrod* to add the pojo module dependency
 
 [source]
 .*Example module dependency*
@@ -36,7 +36,7 @@ see link:PojoConfiguration.adoc[Pojo Creation] regarding how to create the pojo 
 
 === Configuring JDG Resource Adapter
 
-See https://teiid.gitbooks.io/documents/content/v/9.1.x/admin/Infinispan_HotRod_Data_Sources.html[Infinispan DSL (Hot Rod) DataSources] for all the properties that could be used to configure the JDG resource adapter and will be covered in the following.
+See https://teiid.gitbooks.io/documents/content/v/9.1.x/admin/Infinispan_HotRod_Data_Sources.html[Infinispan Hot Rod DataSources] for all the properties that could be used to configure the JDG resource adapter and will be covered in the following.
 
 ==== A. Use JBDS / Teiid Designer Tooling
 
