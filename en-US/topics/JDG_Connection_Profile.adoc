@@ -12,5 +12,5 @@ image::images/jdg_connprofile_a.png[Select JDG CP Option]
 
 image::images/jdg_connprofile_b.png[Enter JDG CP Properties]
 
-See https://teiid.gitbooks.io/documents/content/v/9.1.x/admin/Infinispan_HotRod_Data_Sources.html[Infinispan DSL (Hot Rod) DataSources] for additional clarification of the properties.
+See https://teiid.gitbooks.io/documents/content/v/9.1.x/admin/Infinispan_HotRod_Data_Sources.html[Infinispan Hot Rod DataSources] for additional clarification of the properties.
 

@@ -17,8 +17,8 @@ The following example is from the JDV server quickstarts:  quickstarts/jdg-remot
     <model name="TestModel" type="Physical">
         <property name="importer.useFullSchemaName" value="false"/>
            
-         <source name="infinispan-cache-dsl-connector" 
-                  translator-name="infinispan-cache-dsl" 
+         <source name="infinispan-hotrod-connector" 
+                  translator-name="ispn-hotrod" 
                   connection-jndi-name="java:/infinispanRemoteDSL" />
     </model>
 </vdb>

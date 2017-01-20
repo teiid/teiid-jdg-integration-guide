@@ -10,7 +10,7 @@ To configure the Teiid Server:
 
 ** *NOTE*:  If installing JDG 6.6, then will need to install the JDG 6.6.1 patch that upgrades infinispan module:  org.infinispan.protostream  to  protostream-3.0.5.Final.jar
 
-.  Configure JDG Cache DSL translator (if not already done), do the following:
+.  Configure JDG Cache Hot Rod translator (if not already done), do the following:
 
 ..  Start the Teiid server
 ..  open terminal window, cd into $JBOSS_HOME/bin
@@ -18,9 +18,9 @@ To configure the Teiid Server:
 
 [source]
 ----
-      ./jboss-cli.sh  --connect  --file=../docs/teiid/datasources/infinispan/add-infinispan-cache-dsl-translator.cli
+      ./jboss-cli.sh  --connect  --file=../docs/teiid/datasources/infinispan/add-ispn-hotrod-translator.cli
 ----
 
-This will install the infinispan-cache-dsl translator and an empty infinispan resource-adapter, which is used for tooling.
+This will install the ispn-hotrod translator and an empty infinispan resource-adapter, which is used for tooling.
 
 
