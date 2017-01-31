@@ -4,7 +4,47 @@
 
 == Use Case
 
-This use case is to demonstrate how to materialize (cache) data from a Teiid view into a JDG remote cache, via Hot Rod Client, and then access the cached data for improved query performance.  See https://access.redhat.com/documentation/en/red-hat-jboss-data-virtualization/6.3/paged/development-guide-volume-5-caching-guide/[External Materialization] for details on using external materialization.
+=== Overview
+
+This materialization (cache) use case is to discuss how to configure a Teiid view as a materialized view to load data into a JDG remote cache, via Hot Rod Client, and then access the cached data for improved query performance.  See https://access.redhat.com/documentation/en/red-hat-jboss-data-virtualization/6.3/paged/development-guide-volume-5-caching-guide/[External Materialization] for details on using external materialization.
+
+
+=== Materialize Process
+
+The process of materializing data will require 3 caches defined in the JDG server.  These caches are referred to in the Teiid JDG HotRod connector as: *cache*, *staging cache* and *alias cache*. The "cache" is general, because in the data source use case, there is only 1 cache needed.   However, in the materialize use case, Teiid will manage the cache mapping in the alias cache.  The cache mapping, upon installation, will be set to:
+
+[source]
+.*Cache Mapping*
+----
+Cache Key      ==>   JDG Cache Name
+-----------------------------------------
+primary-cache  ==>  "cache" cache name defined on the resource-adapter
+staging-cache  ==>  "staging-cache" cache name defined on the resource-adapter
+----
+
+
+When the materialize process is performed, it will first truncate the cache assocated with "staging-cache" key.  Then the data will be loaded into the "staging-cache".  Once data is loaded, the process will swap the JDG Cache Names, updating the alias cache, resulting in:
+
+[source]
+.*Cache Mapping*
+----
+Cache Key      ==>   JDG Cache Name
+-----------------------------------------
+primary-cache  ==>  "staging-cache" cache name defined on the resource-adapter
+staging-cache  ==>  "cache" cache name defined on the resource-adapter
+----
+
+Now subsequent queries will be retrieving the data from primary cache, which is now pointing to the "staging-cache" cache name.  This cycle of swapping the caches is a continual process as materialization is performed.  If the server is shutdown and restarted, it will retrieve the latest mapping stored in the alias cache so that it maintains what was determined as the latest updated cache.
+
+
+=== Sizing recommendations
+
+When sizing the JDG caches, it is recommended that you double the size so that both caches, primary and staging, are accounted for.  Because once materialization has started, both caches will be fully loaded based on the data retrieved from the view.    
+
+
+=== How To Materialize
 
 The following sections will describe how to materialize to a JDG cache use tooling or do it manually, when full flexibility is needed.
+
+
 
